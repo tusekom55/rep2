@@ -14667,24 +14667,38 @@
             }
         }
 
-        // Modern Transaction History Display
+        // Global transaction pagination variables
+        let allTransactions = [];
+        let currentTransactionPage = 1;
+        const transactionsPerPage = 3;
+
+        // Modern Transaction History Display with Pagination
         function displayModernTransactionHistory(transactions) {
             const historyContainer = document.getElementById('modernTransactionHistory');
             
             if (!transactions || transactions.length === 0) {
                 historyContainer.innerHTML = `
-                    <div style="text-align: center; padding: 60px 20px; color: #8b8fa3;">
-                        <i class="fas fa-history" style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;"></i>
-                        <h3 style="color: #ffffff; margin-bottom: 12px;">İşlem Geçmişi Boş</h3>
-                        <p>Henüz hiç işlem yapmamışsınız.</p>
+                    <div style="text-align: center; padding: 40px 20px; color: #8b8fa3;">
+                        <i class="fas fa-history" style="font-size: 32px; margin-bottom: 12px; opacity: 0.5;"></i>
+                        <h3 style="color: #ffffff; margin-bottom: 8px; font-size: 18px;">İşlem Geçmişi Boş</h3>
+                        <p style="font-size: 14px;">Henüz hiç işlem yapmamışsınız.</p>
                     </div>
                 `;
                 return;
             }
             
-            let historyHTML = '<div style="display: flex; flex-direction: column; gap: 16px;">';
+            // Store all transactions globally
+            allTransactions = transactions;
             
-            transactions.forEach(transaction => {
+            // Calculate pagination
+            const totalPages = Math.ceil(transactions.length / transactionsPerPage);
+            const startIndex = (currentTransactionPage - 1) * transactionsPerPage;
+            const endIndex = startIndex + transactionsPerPage;
+            const currentTransactions = transactions.slice(startIndex, endIndex);
+            
+            let historyHTML = '<div style="display: flex; flex-direction: column; gap: 12px;">';
+            
+            currentTransactions.forEach(transaction => {
                 const isPositive = parseFloat(transaction.amount) > 0;
                 const amount = parseFloat(transaction.amount);
                 const formattedAmount = (isPositive ? '+' : '') + '₺' + Math.abs(amount).toLocaleString('tr-TR', { minimumFractionDigits: 2 });
@@ -14707,42 +14721,41 @@
                 // Status badge
                 let statusBadge = '';
                 if (transaction.sub_type === 'beklemede') {
-                    statusBadge = '<span style="background: rgba(251, 191, 36, 0.2); color: #fbbf24; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 600;">Beklemede</span>';
+                    statusBadge = '<span style="background: rgba(251, 191, 36, 0.2); color: #fbbf24; padding: 2px 6px; border-radius: 8px; font-size: 10px; font-weight: 600;">Beklemede</span>';
                 } else if (transaction.sub_type === 'onaylandi' || transaction.sub_type === 'al' || transaction.sub_type === 'sat') {
-                    statusBadge = '<span style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 600;">Tamamlandı</span>';
+                    statusBadge = '<span style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 2px 6px; border-radius: 8px; font-size: 10px; font-weight: 600;">Tamamlandı</span>';
                 } else if (transaction.sub_type === 'reddedildi') {
-                    statusBadge = '<span style="background: rgba(239, 68, 68, 0.2); color: #ef4444; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 600;">Reddedildi</span>';
+                    statusBadge = '<span style="background: rgba(239, 68, 68, 0.2); color: #ef4444; padding: 2px 6px; border-radius: 8px; font-size: 10px; font-weight: 600;">Reddedildi</span>';
                 }
                 
                 historyHTML += `
-                    <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 20px; transition: all 0.3s ease; backdrop-filter: blur(20px);">
-                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
-                            <div style="display: flex; align-items: center; gap: 16px;">
-                                <div style="width: 48px; height: 48px; background: rgba(${iconColor.substring(1, 3)}, ${iconColor.substring(3, 5)}, ${iconColor.substring(5, 7)}, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-                                    <i class="${icon}" style="color: ${iconColor}; font-size: 18px;"></i>
+                    <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 16px; transition: all 0.3s ease; backdrop-filter: blur(20px);">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <div style="width: 36px; height: 36px; background: rgba(${iconColor.substring(1, 3)}, ${iconColor.substring(3, 5)}, ${iconColor.substring(5, 7)}, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                                    <i class="${icon}" style="color: ${iconColor}; font-size: 14px;"></i>
                                 </div>
-                                <div>
-                                    <div style="font-weight: 600; color: #ffffff; margin-bottom: 4px; font-size: 16px;">
+                                <div style="min-width: 0; flex: 1;">
+                                    <div style="font-weight: 600; color: #ffffff; margin-bottom: 2px; font-size: 14px; line-height: 1.2;">
                                         ${transaction.description}
                                     </div>
-                                    <div style="font-size: 13px; color: #8b8fa3; display: flex; align-items: center; gap: 8px;">
-                                        ${new Date(transaction.date).toLocaleDateString('tr-TR', { 
-                                            year: 'numeric', 
+                                    <div style="font-size: 11px; color: #8b8fa3; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+                                        <span>${new Date(transaction.date).toLocaleDateString('tr-TR', { 
                                             month: 'short', 
                                             day: 'numeric', 
                                             hour: '2-digit', 
                                             minute: '2-digit' 
-                                        })}
+                                        })}</span>
                                         ${statusBadge}
                                     </div>
                                 </div>
                             </div>
-                            <div style="text-align: right;">
-                                <div style="font-weight: 700; font-size: 18px; color: ${isPositive ? '#00d4aa' : '#ef4444'}; margin-bottom: 4px;">
+                            <div style="text-align: right; flex-shrink: 0; margin-left: 8px;">
+                                <div style="font-weight: 700; font-size: 15px; color: ${isPositive ? '#00d4aa' : '#ef4444'}; margin-bottom: 2px;">
                                     ${formattedAmount}
                                 </div>
-                                <div style="font-size: 12px; color: #8b8fa3;">
-                                    ${transaction.type === 'coin_trade' ? 'Coin İşlemi' : transaction.type === 'deposit' ? 'Para Yatırma' : 'Para Çekme'}
+                                <div style="font-size: 10px; color: #8b8fa3;">
+                                    ${transaction.type === 'coin_trade' ? 'Coin' : transaction.type === 'deposit' ? 'Yatırım' : 'Çekim'}
                                 </div>
                             </div>
                         </div>
@@ -14751,7 +14764,67 @@
             });
             
             historyHTML += '</div>';
+            
+            // Add pagination if there are more than 3 transactions
+            if (totalPages > 1) {
+                historyHTML += `
+                    <div style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 16px; padding: 12px;">
+                        <button onclick="changeTransactionPage(${currentTransactionPage - 1})" 
+                                ${currentTransactionPage === 1 ? 'disabled' : ''} 
+                                style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; padding: 6px 10px; border-radius: 6px; cursor: ${currentTransactionPage === 1 ? 'not-allowed' : 'pointer'}; font-size: 12px; opacity: ${currentTransactionPage === 1 ? '0.5' : '1'};">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        
+                        <div style="display: flex; gap: 4px;">
+                `;
+                
+                // Page numbers
+                for (let i = 1; i <= totalPages; i++) {
+                    const isActive = i === currentTransactionPage;
+                    historyHTML += `
+                        <button onclick="changeTransactionPage(${i})" 
+                                style="background: ${isActive ? 'linear-gradient(135deg, #3b82f6, #1d4ed8)' : 'rgba(255, 255, 255, 0.1)'}; 
+                                       border: 1px solid ${isActive ? '#3b82f6' : 'rgba(255, 255, 255, 0.2)'}; 
+                                       color: #ffffff; 
+                                       padding: 6px 10px; 
+                                       border-radius: 6px; 
+                                       cursor: pointer; 
+                                       font-size: 12px; 
+                                       font-weight: ${isActive ? '600' : '400'};
+                                       min-width: 28px;
+                                       transition: all 0.3s ease;">
+                            ${i}
+                        </button>
+                    `;
+                }
+                
+                historyHTML += `
+                        </div>
+                        
+                        <button onclick="changeTransactionPage(${currentTransactionPage + 1})" 
+                                ${currentTransactionPage === totalPages ? 'disabled' : ''} 
+                                style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; padding: 6px 10px; border-radius: 6px; cursor: ${currentTransactionPage === totalPages ? 'not-allowed' : 'pointer'}; font-size: 12px; opacity: ${currentTransactionPage === totalPages ? '0.5' : '1'};">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        
+                        <div style="margin-left: 12px; color: #8b8fa3; font-size: 11px;">
+                            ${startIndex + 1}-${Math.min(endIndex, transactions.length)} / ${transactions.length}
+                        </div>
+                    </div>
+                `;
+            }
+            
             historyContainer.innerHTML = historyHTML;
+        }
+
+        // Change transaction page function
+        function changeTransactionPage(page) {
+            const totalPages = Math.ceil(allTransactions.length / transactionsPerPage);
+            
+            if (page < 1 || page > totalPages) return;
+            
+            currentTransactionPage = page;
+            displayModernTransactionHistory(allTransactions);
         }
 
         // Modern Profile Stats Update
