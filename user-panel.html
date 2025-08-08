@@ -3373,89 +3373,75 @@
            }
        }
 
-        /* Modern Profile Styles - Mobile First */
+        /* Basit Profil Stilleri - Sadeleştirilmiş */
         
-        /* Profile Hero Section */
+        /* Profil Header */
         .modern-profile-header {
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
         
         .profile-hero-section {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border-radius: 24px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 24px;
         }
         
         .profile-background-gradient {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 120px;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
-            opacity: 0.1;
+            display: none; /* Karmaşık gradient gizle */
         }
         
         .profile-hero-content {
-            position: relative;
-            padding: 32px;
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 16px;
         }
         
         .profile-avatar-section {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 16px;
         }
         
         .profile-avatar-container {
             position: relative;
-            flex-shrink: 0;
         }
         
         .profile-avatar {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            width: 64px;
+            height: 64px;
+            background: #3b82f6;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 24px;
             color: white;
-            border: 4px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
         }
         
         .avatar-status-indicator {
             position: absolute;
-            bottom: 5px;
-            right: 5px;
-            width: 20px;
-            height: 20px;
+            bottom: 2px;
+            right: 2px;
+            width: 16px;
+            height: 16px;
             background: #10b981;
             border-radius: 50%;
-            border: 3px solid #0f172a;
-            animation: pulse 2s infinite;
+            border: 2px solid #0f172a;
         }
         
+        /* Karmaşık animasyonları kaldır */
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+            /* Basit pulse */
         }
         
         .edit-avatar-btn {
             position: absolute;
             top: -5px;
             right: -5px;
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            width: 24px;
+            height: 24px;
+            background: #3b82f6;
             border: none;
             border-radius: 50%;
             color: white;
@@ -3463,14 +3449,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+            font-size: 12px;
         }
         
         .edit-avatar-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.6);
+            background: #1d4ed8;
         }
         
         .profile-user-info {
@@ -3478,45 +3461,41 @@
         }
         
         .profile-username {
-            font-size: 28px;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 600;
             color: #ffffff;
             margin: 0 0 8px 0;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .profile-user-level {
-            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            background: #10b981;
             color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 14px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
             font-weight: 600;
             display: inline-block;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            margin-bottom: 8px;
         }
         
         .profile-join-date {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             color: #94a3b8;
             font-size: 14px;
-            font-weight: 500;
         }
         
         .profile-join-date i {
             color: #3b82f6;
         }
         
-        /* Balance Hero Card */
+        /* Basit Bakiye Kartı */
         .profile-balance-hero {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 24px;
+            border-radius: 12px;
+            padding: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
         }
         
         .balance-hero-card {
@@ -3526,25 +3505,20 @@
         .balance-label {
             color: #94a3b8;
             font-size: 14px;
-            font-weight: 600;
             margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
         }
         
         .balance-amount {
-            font-size: 36px;
+            font-size: 28px;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 8px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .balance-change {
             color: #10b981;
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 20px;
+            font-size: 14px;
+            margin-bottom: 16px;
         }
         
         .balance-quick-actions {
@@ -3554,104 +3528,68 @@
         }
         
         .balance-action-btn {
-            flex: 1;
-            max-width: 140px;
-            padding: 12px 20px;
+            padding: 10px 16px;
             border: none;
-            border-radius: 12px;
+            border-radius: 8px;
             font-size: 14px;
-            font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
+            gap: 6px;
         }
         
         .balance-action-btn.deposit {
-            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            background: #10b981;
             color: white;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
         }
         
         .balance-action-btn.withdraw {
-            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            background: #f59e0b;
             color: white;
-            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
         }
         
         .balance-action-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            opacity: 0.9;
         }
         
-        /* Modern Stats Grid */
+        /* Basit İstatistik Kartları */
         .modern-stats-container {
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
         
         .stats-grid-mobile {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+            gap: 12px;
         }
         
         .modern-stat-card {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 20px;
-            backdrop-filter: blur(20px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 16px;
         }
         
+        /* Karmaşık before elementlerini basitleştir */
         .modern-stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            border-radius: 20px 20px 0 0;
-        }
-        
-        .modern-stat-card.trades::before {
-            background: linear-gradient(90deg, #3b82f6, #06b6d4);
-        }
-        
-        .modern-stat-card.profit::before {
-            background: linear-gradient(90deg, #10b981, #34d399);
-        }
-        
-        .modern-stat-card.portfolio::before {
-            background: linear-gradient(90deg, #f59e0b, #fbbf24);
-        }
-        
-        .modern-stat-card.membership::before {
-            background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+            display: none;
         }
         
         .modern-stat-card:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
-            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.08);
         }
         
         .stat-card-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 16px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 18px;
             color: #ffffff;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         
         .stat-card-content {
@@ -3661,25 +3599,19 @@
         }
         
         .stat-card-value {
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 600;
             color: #ffffff;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .stat-card-label {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 500;
+            font-size: 12px;
+            color: #94a3b8;
         }
         
         .stat-card-trend {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 12px;
+            font-size: 11px;
             color: #10b981;
-            font-weight: 600;
             margin-top: 4px;
         }
         
@@ -3691,36 +3623,33 @@
             color: #ef4444;
         }
         
-        /* Profile Details */
+        /* Basit Profil Detayları */
         .modern-profile-details {
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
         
         .profile-details-container {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            backdrop-filter: blur(20px);
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
         }
         
         .profile-details-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 24px;
+            padding: 20px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .profile-details-title {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 18px;
+            font-weight: 600;
             color: #ffffff;
             margin: 0;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
         }
         
         .profile-details-title i {
@@ -3728,297 +3657,203 @@
         }
         
         .edit-profile-btn {
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            background: #3b82f6;
             color: white;
             border: none;
-            padding: 10px 16px;
-            border-radius: 12px;
+            padding: 8px 12px;
+            border-radius: 8px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 12px;
         }
         
         .edit-profile-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+            background: #1d4ed8;
         }
         
         .profile-info-grid {
-            padding: 24px;
+            padding: 20px;
         }
         
-        /* Transaction History */
+        /* Basit İşlem Geçmişi */
         .modern-transaction-container {
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
         
         .transaction-container-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             flex-wrap: wrap;
-            gap: 16px;
-        }
-        
-        .transaction-title-section {
-            flex: 1;
-        }
-        
-        .transaction-main-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #ffffff;
-            margin: 0 0 8px 0;
-            display: flex;
-            align-items: center;
             gap: 12px;
         }
         
-        .transaction-main-title i {
+        .transaction-title-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0 0 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .transaction-title-section h3 i {
             color: #8b5cf6;
         }
         
         .transaction-subtitle {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            color: #94a3b8;
             margin: 0;
         }
         
         .transaction-controls {
             display: flex;
             align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
+            gap: 12px;
         }
         
         .transaction-filter-tabs {
             display: flex;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 2px;
         }
         
         .filter-tab {
-            padding: 8px 16px;
+            padding: 6px 12px;
             background: transparent;
             border: none;
-            color: rgba(255, 255, 255, 0.6);
-            border-radius: 8px;
+            color: #94a3b8;
+            border-radius: 6px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 12px;
         }
         
         .filter-tab.active {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             color: #ffffff;
         }
         
         .filter-tab:hover {
-            background: rgba(255, 255, 255, 0.15);
             color: #ffffff;
         }
         
         .modern-refresh-btn {
-            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            background: #8b5cf6;
             color: white;
             border: none;
-            padding: 10px 16px;
-            border-radius: 12px;
+            padding: 8px 12px;
+            border-radius: 8px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-size: 12px;
         }
         
         .modern-refresh-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+            background: #7c3aed;
         }
         
         .modern-transaction-list {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            backdrop-filter: blur(20px);
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-            min-height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            min-height: 150px;
         }
         
-        /* Quick Actions Panel */
+        /* Basit Hızlı İşlemler */
         .profile-quick-actions {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 24px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-        }
-        
-        .quick-actions-header {
-            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
         }
         
         .quick-actions-header h3 {
-            font-size: 18px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 600;
             color: #ffffff;
-            margin: 0;
+            margin: 0 0 16px 0;
         }
         
         .quick-actions-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+            gap: 12px;
         }
         
         .quick-action-btn {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 20px;
+            border-radius: 8px;
+            padding: 16px;
             cursor: pointer;
-            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
             text-align: left;
         }
         
         .quick-action-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.08);
         }
         
         .quick-action-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-            border-radius: 16px;
+            width: 36px;
+            height: 36px;
+            background: #3b82f6;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 16px;
             color: white;
-            flex-shrink: 0;
-        }
-        
-        .quick-action-text {
-            flex: 1;
         }
         
         .quick-action-text span {
             display: block;
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 500;
             color: #ffffff;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
         
         .quick-action-text small {
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
+            font-size: 11px;
+            color: #94a3b8;
         }
         
-        /* Loading States */
+        /* Basit Loading */
         .loading-state {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
             color: #94a3b8;
         }
         
         .modern-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top: 3px solid #3b82f6;
+            width: 24px;
+            height: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-top: 2px solid #3b82f6;
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         
-        /* Mobile Responsive */
+        /* Mobil Responsive - Basitleştirilmiş */
         @media (max-width: 768px) {
             .profile-hero-content {
-                padding: 24px;
-                gap: 20px;
+                padding: 20px;
+                gap: 16px;
             }
             
             .profile-avatar-section {
                 flex-direction: column;
                 text-align: center;
-                gap: 16px;
-            }
-            
-            .profile-avatar {
-                width: 100px;
-                height: 100px;
-                font-size: 40px;
-            }
-            
-            .profile-username {
-                font-size: 24px;
-            }
-            
-            .balance-amount {
-                font-size: 28px;
-            }
-            
-            .balance-quick-actions {
-                flex-direction: column;
-            }
-            
-            .balance-action-btn {
-                max-width: none;
-            }
-            
-            .stats-grid-mobile {
-                grid-template-columns: 1fr;
                 gap: 12px;
-            }
-            
-            .transaction-container-header {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .transaction-controls {
-                justify-content: space-between;
-            }
-            
-            .quick-actions-grid {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            
-            .quick-action-btn {
-                padding: 16px;
-            }
-            
-            .quick-action-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .profile-hero-content {
-                padding: 20px;
             }
             
             .profile-avatar {
@@ -4028,34 +3863,62 @@
             }
             
             .profile-username {
-                font-size: 20px;
+                font-size: 18px;
             }
             
             .balance-amount {
                 font-size: 24px;
             }
             
-            .modern-stat-card {
-                padding: 16px;
-            }
-            
-            .stat-card-value {
-                font-size: 20px;
-            }
-            
-            .profile-details-header {
-                padding: 20px;
+            .balance-quick-actions {
                 flex-direction: column;
-                gap: 12px;
+            }
+            
+            .stats-grid-mobile {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .transaction-container-header {
+                flex-direction: column;
                 align-items: stretch;
             }
             
-            .edit-profile-btn {
-                justify-content: center;
+            .quick-actions-grid {
+                grid-template-columns: 1fr;
+                gap: 8px;
             }
         }
         
-        /* Desktop Responsive */
+        @media (max-width: 480px) {
+            .profile-hero-content {
+                padding: 16px;
+            }
+            
+            .profile-avatar {
+                width: 64px;
+                height: 64px;
+                font-size: 24px;
+            }
+            
+            .profile-username {
+                font-size: 16px;
+            }
+            
+            .balance-amount {
+                font-size: 20px;
+            }
+            
+            .modern-stat-card {
+                padding: 12px;
+            }
+            
+            .stat-card-value {
+                font-size: 16px;
+            }
+        }
+        
+        /* Desktop - Basit */
         @media (min-width: 1024px) {
             .stats-grid-mobile {
                 grid-template-columns: repeat(4, 1fr);
@@ -4077,7 +3940,7 @@
             
             .profile-balance-hero {
                 flex-shrink: 0;
-                min-width: 300px;
+                min-width: 280px;
             }
         }
 
@@ -7584,6 +7447,59 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Hızlı İşlemler Paneli - Dashboard'a Taşındı -->
+                    <div class="card" style="margin: 24px 0;">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <i class="fas fa-bolt" style="color: #3b82f6; margin-right: 8px;"></i>
+                                Hızlı İşlemler
+                            </h3>
+                        </div>
+                        <div class="dashboard-quick-actions" style="padding: 20px;">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                                <button class="dashboard-action-btn" onclick="showSection('markets')" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 16px; padding: 20px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 16px; text-align: left; color: inherit;">
+                                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: white; flex-shrink: 0; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <span style="display: block; font-size: 16px; font-weight: 600; color: #ffffff; margin-bottom: 4px;">Coin Al</span>
+                                        <small style="font-size: 12px; color: rgba(255, 255, 255, 0.6);">Piyasalardan alım yap</small>
+                                    </div>
+                                </button>
+
+                                <button class="dashboard-action-btn" onclick="showSection('portfolio')" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 16px; padding: 20px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 16px; text-align: left; color: inherit;">
+                                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: white; flex-shrink: 0; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <span style="display: block; font-size: 16px; font-weight: 600; color: #ffffff; margin-bottom: 4px;">Portföy</span>
+                                        <small style="font-size: 12px; color: rgba(255, 255, 255, 0.6);">Varlıklarınızı görüntüle</small>
+                                    </div>
+                                </button>
+
+                                <button class="dashboard-action-btn" onclick="showSection('deposit')" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%); border: 1px solid rgba(245, 158, 11, 0.2); border-radius: 16px; padding: 20px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 16px; text-align: left; color: inherit;">
+                                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: white; flex-shrink: 0; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);">
+                                        <i class="fas fa-plus-circle"></i>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <span style="display: block; font-size: 16px; font-weight: 600; color: #ffffff; margin-bottom: 4px;">Para Yatır</span>
+                                        <small style="font-size: 12px; color: rgba(255, 255, 255, 0.6);">Bakiye ekle</small>
+                                    </div>
+                                </button>
+
+                                <button class="dashboard-action-btn" onclick="showSection('positions')" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 16px; padding: 20px; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 16px; text-align: left; color: inherit;">
+                                    <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: white; flex-shrink: 0; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div style="flex: 1;">
+                                        <span style="display: block; font-size: 16px; font-weight: 600; color: #ffffff; margin-bottom: 4px;">Pozisyonlar</span>
+                                        <small style="font-size: 12px; color: rgba(255, 255, 255, 0.6);">Kaldıraçlı işlemler</small>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="grid grid-2">
                         <div class="card">
@@ -8714,8 +8630,67 @@
                 </section>
                 
                 <section class="content-section" id="profile">
-                    <!-- Modern Mobile-First Profile Header -->
-                    <div class="modern-profile-header">
+                    <div class="section-header">
+                        <h2 class="section-title">Profil</h2>
+                        <p class="section-subtitle">Hesap bilgileriniz ve işlem geçmişiniz</p>
+                    </div>
+                    
+                    <!-- Basit Profil Kartları -->
+                    <div class="grid grid-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Kullanıcı Bilgileri</h3>
+                                <i class="fas fa-user" style="color: #00d4aa;"></i>
+                            </div>
+                            <div id="userInfo">
+                                <div class="loading">
+                                    <div class="spinner"></div>
+                                    Yükleniyor...
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Bakiye Bilgileri</h3>
+                                <i class="fas fa-wallet" style="color: #00d4aa;"></i>
+                            </div>
+                            <div id="balanceInfo">
+                                <div class="loading">
+                                    <div class="spinner"></div>
+                                    Yükleniyor...
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">İstatistikler</h3>
+                                <i class="fas fa-chart-bar" style="color: #00d4aa;"></i>
+                            </div>
+                            <div style="line-height: 1.8;">
+                                <p><strong>Toplam İşlem:</strong> <span id="totalTrades">0</span></p>
+                                <p><strong>Kar/Zarar:</strong> <span id="profitLoss">₺0</span></p>
+                                <p><strong>Üyelik:</strong> <span id="memberSince">0</span> ay</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- İşlem Geçmişi -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">İşlem Geçmişi</h3>
+                        </div>
+                        <div id="transactionHistory">
+                            <div class="loading">
+                                <div class="spinner"></div>
+                                Yükleniyor...
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modern bileşenler gizlendi ancak DOM yapısı korundu -->
+                    <div class="modern-profile-header" style="display: none !important;">
                         <div class="profile-hero-section">
                             <div class="profile-background-gradient"></div>
                             <div class="profile-hero-content">
@@ -8739,7 +8714,6 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Enhanced Balance Display -->
                                 <div class="profile-balance-hero">
                                     <div class="balance-hero-card">
                                         <div class="balance-label">Toplam Bakiye</div>
@@ -8761,8 +8735,7 @@
                         </div>
                     </div>
 
-                    <!-- Modern Stats Grid -->
-                    <div class="modern-stats-container">
+                    <div class="modern-stats-container" style="display: none !important;">
                         <div class="stats-grid-mobile">
                             <div class="modern-stat-card trades">
                                 <div class="stat-card-icon">
@@ -8822,8 +8795,7 @@
                         </div>
                     </div>
 
-                    <!-- Modern Profile Details -->
-                    <div class="modern-profile-details">
+                    <div class="modern-profile-details" style="display: none;">
                         <div class="profile-details-container">
                             <div class="profile-details-header">
                                 <h3 class="profile-details-title">
@@ -8845,15 +8817,7 @@
                         </div>
                     </div>
 
-                    <!-- Legacy Profile Info (Hidden but preserved for JS compatibility) -->
-                    <div id="userInfo" style="display: none;"></div>
-                    <div id="balanceInfo" style="display: none;"></div>
-                    <div id="totalTrades" style="display: none;">0</div>
-                    <div id="profitLoss" style="display: none;">₺0</div>
-                    <div id="memberSince" style="display: none;">0</div>
-
-                    <!-- Modern Transaction History -->
-                    <div class="modern-transaction-container">
+                    <div class="modern-transaction-container" style="display: none;">
                         <div class="transaction-container-header">
                             <div class="transaction-title-section">
                                 <h3 class="transaction-main-title">
@@ -8884,11 +8848,7 @@
                         </div>
                     </div>
 
-                    <!-- Legacy Transaction History (Hidden but preserved for JS compatibility) -->
-                    <div id="transactionHistory" style="display: none;"></div>
-
-                    <!-- Quick Actions Panel -->
-                    <div class="profile-quick-actions">
+                    <div class="profile-quick-actions" style="display: none;">
                         <div class="quick-actions-header">
                             <h3>Hızlı İşlemler</h3>
                         </div>
@@ -14911,7 +14871,7 @@
             `;
         }
 
-        // Enhanced loadUserInfo for modern profile
+        // Enhanced loadUserInfo for modern profile - Güvenli profil yüklemesi
         function loadUserInfo() {
             fetch('backend/public/profile.php', {
                 method: 'GET',
@@ -14929,52 +14889,24 @@
                         maximumFractionDigits: 2
                     });
                     
-                    document.getElementById('userBalance').innerHTML = 
-                        `<i class="fas fa-wallet"></i> ₺${balanceFormatted}`;
-                    
-                    document.getElementById('totalBalance').innerHTML = 
-                        `<h1 style="font-size: 2rem; color: #00d4aa;">₺${balanceFormatted}</h1>`;
-                    
-                    // Modern Profile Updates
-                    const profileUsername = document.getElementById('profileUsername');
-                    const profileBalanceAmount = document.getElementById('profileBalanceAmount');
-                    const profileBalanceChange = document.getElementById('profileBalanceChange');
-                    const profileJoinDate = document.getElementById('profileJoinDate');
-                    
-                    if (profileUsername) {
-                        profileUsername.textContent = data.user.username || 'Kullanıcı';
+                    // Güvenli element güncellemeleri - null check ile
+                    const userBalanceEl = document.getElementById('userBalance');
+                    if (userBalanceEl) {
+                        userBalanceEl.innerHTML = `<i class="fas fa-wallet"></i> ₺${balanceFormatted}`;
                     }
                     
-                    if (profileBalanceAmount) {
-                        profileBalanceAmount.textContent = `₺${balanceFormatted}`;
+                    const totalBalanceEl = document.getElementById('totalBalance');
+                    if (totalBalanceEl) {
+                        totalBalanceEl.innerHTML = `<h1 style="font-size: 2rem; color: #00d4aa;">₺${balanceFormatted}</h1>`;
                     }
                     
-                    if (profileBalanceChange) {
-                        // Günlük değişim hesapla (şimdilik sabit)
-                        const dailyChange = balance * 0.02; // %2 örnek artış
-                        profileBalanceChange.textContent = `+₺${dailyChange.toLocaleString('tr-TR', {minimumFractionDigits: 2})} (+2.0%)`;
+                    // Modern Profile Updates - Güvenli atla (elementler gizli)
+                    try {
+                        console.log('Modern profil elementleri güvenli şekilde atlanıyor...');
+                        // Tüm modern element güncellemeleri devre dışı
+                    } catch (error) {
+                        console.log('Modern profil güvenlik kontrolü aktif:', error);
                     }
-                    
-                    if (profileJoinDate) {
-                        const joinDate = data.user.created_at ? new Date(data.user.created_at).toLocaleDateString('tr-TR', {
-                            year: 'numeric',
-                            month: 'long'
-                        }) : 'Ocak 2024';
-                        profileJoinDate.innerHTML = `
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Üye olma: ${joinDate}</span>
-                        `;
-                    }
-                    
-                    // Profile avatar güncelle
-                    const profileAvatar = document.getElementById('profileAvatar');
-                    if (profileAvatar) {
-                        const firstLetter = (data.user.username || 'U').charAt(0).toUpperCase();
-                        profileAvatar.innerHTML = `<i class="fas fa-user"></i>`;
-                    }
-                    
-                    // Modern user info display
-                    displayModernUserInfo(data.user);
                     
                     // Legacy updates
                     document.getElementById('userInfo').innerHTML = `
