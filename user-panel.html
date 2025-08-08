@@ -3373,134 +3373,712 @@
            }
        }
 
-               /* Profile Page Styles */
-        .profile-info-card, .balance-card {
-            background: linear-gradient(135deg, #1e2530 0%, #2a3441 100%);
-            border: 1px solid #2a2f3e;
-            border-radius: 12px;
-            padding: 24px;
-            transition: all 0.3s ease;
+        /* Modern Profile Styles - Mobile First */
+        
+        /* Profile Hero Section */
+        .modern-profile-header {
+            margin-bottom: 32px;
         }
-
-        .profile-info-card:hover, .balance-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        
+        .profile-hero-section {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .stat-card {
-            background: linear-gradient(135deg, #1e2530 0%, #2a3441 100%);
-            border: 1px solid #2a2f3e;
-            border-radius: 12px;
-            padding: 20px;
+        
+        .profile-background-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
+            opacity: 0.1;
+        }
+        
+        .profile-hero-content {
+            position: relative;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .profile-avatar-section {
             display: flex;
             align-items: center;
-            gap: 15px;
-            transition: all 0.3s ease;
+            gap: 20px;
         }
-
-        .stat-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        
+        .profile-avatar-container {
+            position: relative;
+            flex-shrink: 0;
         }
-
-        .stat-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #00d4aa 0%, #00a87a 100%);
+        
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 32px;
             color: white;
-            font-size: 1.5rem;
-            flex-shrink: 0;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
         }
-
-        .stat-content {
+        
+        .avatar-status-indicator {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 20px;
+            height: 20px;
+            background: #10b981;
+            border-radius: 50%;
+            border: 3px solid #0f172a;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .edit-avatar-btn {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+        
+        .edit-avatar-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.6);
+        }
+        
+        .profile-user-info {
             flex: 1;
         }
-
-        .stat-value {
-            font-size: 1.8rem;
+        
+        .profile-username {
+            font-size: 28px;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 5px;
+            margin: 0 0 8px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-
-        .stat-label {
-            color: #8b8fa3;
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        .transaction-history-card {
-            background: linear-gradient(135deg, #1e2530 0%, #2a3441 100%);
-            border: 1px solid #2a2f3e;
-            border-radius: 12px;
-            padding: 24px;
-        }
-
-        .refresh-btn {
-            background: linear-gradient(135deg, #00d4aa 0%, #00a87a 100%);
+        
+        .profile-user-level {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
             color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
             font-weight: 600;
-            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        
+        .profile-join-date {
             display: flex;
             align-items: center;
             gap: 8px;
+            color: #94a3b8;
+            font-size: 14px;
+            font-weight: 500;
         }
-
-        .refresh-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 5px 15px rgba(0, 212, 170, 0.3);
+        
+        .profile-join-date i {
+            color: #3b82f6;
         }
-
-        .transaction-item {
+        
+        /* Balance Hero Card */
+        .profile-balance-hero {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+        }
+        
+        .balance-hero-card {
+            text-align: center;
+        }
+        
+        .balance-label {
+            color: #94a3b8;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .balance-amount {
+            font-size: 36px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .balance-change {
+            color: #10b981;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .balance-quick-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        
+        .balance-action-btn {
+            flex: 1;
+            max-width: 140px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .balance-action-btn.deposit {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+        
+        .balance-action-btn.withdraw {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+        
+        .balance-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Modern Stats Grid */
+        .modern-stats-container {
+            margin-bottom: 32px;
+        }
+        
+        .stats-grid-mobile {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .modern-stat-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+        
+        .modern-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .modern-stat-card.trades::before {
+            background: linear-gradient(90deg, #3b82f6, #06b6d4);
+        }
+        
+        .modern-stat-card.profit::before {
+            background: linear-gradient(90deg, #10b981, #34d399);
+        }
+        
+        .modern-stat-card.portfolio::before {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+        }
+        
+        .modern-stat-card.membership::before {
+            background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+        }
+        
+        .modern-stat-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+        
+        .stat-card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+        
+        .stat-card-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .stat-card-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .stat-card-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+        }
+        
+        .stat-card-trend {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: #10b981;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        
+        .stat-card-trend.positive {
+            color: #10b981;
+        }
+        
+        .stat-card-trend.negative {
+            color: #ef4444;
+        }
+        
+        /* Profile Details */
+        .modern-profile-details {
+            margin-bottom: 32px;
+        }
+        
+        .profile-details-container {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+        
+        .profile-details-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            margin-bottom: 10px;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 24px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .profile-details-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .profile-details-title i {
+            color: #3b82f6;
+        }
+        
+        .edit-profile-btn {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
-
-        .transaction-item:hover {
-            background: rgba(255, 255, 255, 0.08);
+        
+        .edit-profile-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
         }
-
-        .transaction-info {
+        
+        .profile-info-grid {
+            padding: 24px;
+        }
+        
+        /* Transaction History */
+        .modern-transaction-container {
+            margin-bottom: 32px;
+        }
+        
+        .transaction-container-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        
+        .transaction-title-section {
             flex: 1;
         }
-
-        .transaction-type {
+        
+        .transaction-main-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .transaction-main-title i {
+            color: #8b5cf6;
+        }
+        
+        .transaction-subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+        }
+        
+        .transaction-controls {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .transaction-filter-tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 4px;
+        }
+        
+        .filter-tab {
+            padding: 8px 16px;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .filter-tab.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+        
+        .filter-tab:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+        
+        .modern-refresh-btn {
+            background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .modern-refresh-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+        }
+        
+        .modern-transaction-list {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            backdrop-filter: blur(20px);
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            min-height: 200px;
+        }
+        
+        /* Quick Actions Panel */
+        .profile-quick-actions {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 24px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+        
+        .quick-actions-header {
+            margin-bottom: 20px;
+        }
+        
+        .quick-actions-header h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 0;
+        }
+        
+        .quick-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .quick-action-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            text-align: left;
+        }
+        
+        .quick-action-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .quick-action-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .quick-action-text {
+            flex: 1;
+        }
+        
+        .quick-action-text span {
+            display: block;
+            font-size: 16px;
             font-weight: 600;
             color: #ffffff;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
-
-        .transaction-details {
-            color: #8b8fa3;
-            font-size: 0.9rem;
+        
+        .quick-action-text small {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
         }
-
-        .transaction-amount {
-            font-weight: 700;
-            font-size: 1.1rem;
+        
+        /* Loading States */
+        .loading-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            color: #94a3b8;
         }
-
-        .transaction-amount.positive {
-            color: #00d4aa;
+        
+        .modern-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 16px;
         }
-
-        .transaction-amount.negative {
-            color: #ff4757;
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .profile-hero-content {
+                padding: 24px;
+                gap: 20px;
+            }
+            
+            .profile-avatar-section {
+                flex-direction: column;
+                text-align: center;
+                gap: 16px;
+            }
+            
+            .profile-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+            
+            .profile-username {
+                font-size: 24px;
+            }
+            
+            .balance-amount {
+                font-size: 28px;
+            }
+            
+            .balance-quick-actions {
+                flex-direction: column;
+            }
+            
+            .balance-action-btn {
+                max-width: none;
+            }
+            
+            .stats-grid-mobile {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .transaction-container-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .transaction-controls {
+                justify-content: space-between;
+            }
+            
+            .quick-actions-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            
+            .quick-action-btn {
+                padding: 16px;
+            }
+            
+            .quick-action-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .profile-hero-content {
+                padding: 20px;
+            }
+            
+            .profile-avatar {
+                width: 80px;
+                height: 80px;
+                font-size: 32px;
+            }
+            
+            .profile-username {
+                font-size: 20px;
+            }
+            
+            .balance-amount {
+                font-size: 24px;
+            }
+            
+            .modern-stat-card {
+                padding: 16px;
+            }
+            
+            .stat-card-value {
+                font-size: 20px;
+            }
+            
+            .profile-details-header {
+                padding: 20px;
+                flex-direction: column;
+                gap: 12px;
+                align-items: stretch;
+            }
+            
+            .edit-profile-btn {
+                justify-content: center;
+            }
+        }
+        
+        /* Desktop Responsive */
+        @media (min-width: 1024px) {
+            .stats-grid-mobile {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .quick-actions-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .profile-hero-content {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            
+            .profile-avatar-section {
+                flex: 1;
+            }
+            
+            .profile-balance-hero {
+                flex-shrink: 0;
+                min-width: 300px;
+            }
         }
 
         /* Extra Small Mobile Devices */
@@ -8136,89 +8714,214 @@
                 </section>
                 
                 <section class="content-section" id="profile">
-                    <div class="section-header">
-                        <h2 class="section-title">Profil</h2>
-                        <p class="section-subtitle">Hesap bilgileri ve işlem geçmişi</p>
+                    <!-- Modern Mobile-First Profile Header -->
+                    <div class="modern-profile-header">
+                        <div class="profile-hero-section">
+                            <div class="profile-background-gradient"></div>
+                            <div class="profile-hero-content">
+                                <div class="profile-avatar-section">
+                                    <div class="profile-avatar-container">
+                                        <div class="profile-avatar" id="profileAvatar">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <div class="avatar-status-indicator online"></div>
+                                        <button class="edit-avatar-btn" onclick="editProfileAvatar()">
+                                            <i class="fas fa-camera"></i>
+                                        </button>
+                                    </div>
+                                    <div class="profile-user-info">
+                                        <h2 class="profile-username" id="profileUsername">Kullanıcı</h2>
+                                        <p class="profile-user-level" id="profileUserLevel">Premium Member</p>
+                                        <div class="profile-join-date" id="profileJoinDate">
+                                            <i class="fas fa-calendar-alt"></i>
+                                            <span>Üye olma: Ocak 2024</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Enhanced Balance Display -->
+                                <div class="profile-balance-hero">
+                                    <div class="balance-hero-card">
+                                        <div class="balance-label">Toplam Bakiye</div>
+                                        <div class="balance-amount" id="profileBalanceAmount">₺0.00</div>
+                                        <div class="balance-change" id="profileBalanceChange">+₺0.00 (0%)</div>
+                                        <div class="balance-quick-actions">
+                                            <button class="balance-action-btn deposit" onclick="showSection('deposit')">
+                                                <i class="fas fa-plus"></i>
+                                                <span>Para Yatır</span>
+                                            </button>
+                                            <button class="balance-action-btn withdraw" onclick="showWithdrawalComingSoon()">
+                                                <i class="fas fa-minus"></i>
+                                                <span>Para Çek</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="grid grid-2">
-                        <!-- Kullanıcı Bilgileri Kartı -->
-                        <div class="card profile-info-card">
-                            <div class="card-header">
-                                <h3 class="card-title">
-                                    <i class="fas fa-user" style="color: #00d4aa; margin-right: 10px;"></i>
-                                    Kullanıcı Bilgileri
+
+                    <!-- Modern Stats Grid -->
+                    <div class="modern-stats-container">
+                        <div class="stats-grid-mobile">
+                            <div class="modern-stat-card trades">
+                                <div class="stat-card-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="stat-card-content">
+                                    <div class="stat-card-value" id="modernTotalTrades">0</div>
+                                    <div class="stat-card-label">Toplam İşlem</div>
+                                    <div class="stat-card-trend">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>Bu ay: +5</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modern-stat-card profit">
+                                <div class="stat-card-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="stat-card-content">
+                                    <div class="stat-card-value" id="modernProfitLoss">₺0</div>
+                                    <div class="stat-card-label">Toplam K/Z</div>
+                                    <div class="stat-card-trend positive">
+                                        <i class="fas fa-arrow-up"></i>
+                                        <span>+12.5%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modern-stat-card portfolio">
+                                <div class="stat-card-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="stat-card-content">
+                                    <div class="stat-card-value" id="modernPortfolioValue">₺0</div>
+                                    <div class="stat-card-label">Portföy Değeri</div>
+                                    <div class="stat-card-trend">
+                                        <i class="fas fa-coins"></i>
+                                        <span>5 varlık</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modern-stat-card membership">
+                                <div class="stat-card-icon">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                <div class="stat-card-content">
+                                    <div class="stat-card-value" id="modernMemberSince">3</div>
+                                    <div class="stat-card-label">Ay Üye</div>
+                                    <div class="stat-card-trend">
+                                        <i class="fas fa-star"></i>
+                                        <span>Aktif</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modern Profile Details -->
+                    <div class="modern-profile-details">
+                        <div class="profile-details-container">
+                            <div class="profile-details-header">
+                                <h3 class="profile-details-title">
+                                    <i class="fas fa-user-circle"></i>
+                                    Hesap Bilgileri
                                 </h3>
+                                <button class="edit-profile-btn" onclick="editProfileInfo()">
+                                    <i class="fas fa-edit"></i>
+                                    <span>Düzenle</span>
+                                </button>
                             </div>
-                            <div id="userInfo" class="loading">
-                                <div class="spinner"></div>
-                                Yükleniyor...
+                            
+                            <div class="profile-info-grid" id="modernUserInfo">
+                                <div class="loading-state">
+                                    <div class="modern-spinner"></div>
+                                    <p>Profil bilgileri yükleniyor...</p>
+                                </div>
                             </div>
                         </div>
-                        
-                        <!-- Bakiye Kartı -->
-                        <div class="card balance-card">
-                            <div class="card-header">
-                                <h3 class="card-title">
-                                    <i class="fas fa-wallet" style="color: #00d4aa; margin-right: 10px;"></i>
-                                    Hesap Bakiyesi
+                    </div>
+
+                    <!-- Modern Transaction History -->
+                    <div class="modern-transaction-container">
+                        <div class="transaction-container-header">
+                            <div class="transaction-title-section">
+                                <h3 class="transaction-main-title">
+                                    <i class="fas fa-history"></i>
+                                    İşlem Geçmişi
                                 </h3>
+                                <p class="transaction-subtitle">Son işlemleriniz ve detayları</p>
                             </div>
-                            <div id="balanceInfo" class="loading">
-                                <div class="spinner"></div>
-                                Yükleniyor...
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Hesap İstatistikleri -->
-                    <div class="grid grid-3">
-                        <div class="card stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h4 class="stat-value" id="totalTrades">0</h4>
-                                <p class="stat-label">Toplam İşlem</p>
+                            <div class="transaction-controls">
+                                <div class="transaction-filter-tabs">
+                                    <button class="filter-tab active" data-filter="all">Tümü</button>
+                                    <button class="filter-tab" data-filter="buy">Alım</button>
+                                    <button class="filter-tab" data-filter="sell">Satım</button>
+                                    <button class="filter-tab" data-filter="deposit">Yatırım</button>
+                                </div>
+                                <button class="modern-refresh-btn" onclick="loadTransactionHistory()">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <span>Yenile</span>
+                                </button>
                             </div>
                         </div>
                         
-                        <div class="card stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h4 class="stat-value" id="profitLoss">₺0</h4>
-                                <p class="stat-label">Toplam Kar/Zarar</p>
-                            </div>
-                        </div>
-                        
-                        <div class="card stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-calendar"></i>
-                            </div>
-                            <div class="stat-content">
-                                <h4 class="stat-value" id="memberSince">-</h4>
-                                <p class="stat-label">Üyelik Süresi</p>
+                        <div class="modern-transaction-list" id="modernTransactionHistory">
+                            <div class="loading-state">
+                                <div class="modern-spinner"></div>
+                                <p>İşlem geçmişi yükleniyor...</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <!-- İşlem Geçmişi -->
-                    <div class="card transaction-history-card">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                                <i class="fas fa-history" style="color: #00d4aa; margin-right: 10px;"></i>
-                                İşlem Geçmişi
-                            </h3>
-                            <button class="refresh-btn" onclick="loadTransactionHistory()">
-                                <i class="fas fa-sync-alt"></i>
-                                Yenile
+
+                    <!-- Quick Actions Panel -->
+                    <div class="profile-quick-actions">
+                        <div class="quick-actions-header">
+                            <h3>Hızlı İşlemler</h3>
+                        </div>
+                        <div class="quick-actions-grid">
+                            <button class="quick-action-btn" onclick="showSection('markets')">
+                                <div class="quick-action-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="quick-action-text">
+                                    <span>Coin Al</span>
+                                    <small>Piyasalara git</small>
+                                </div>
                             </button>
-                        </div>
-                        <div id="transactionHistory" class="loading">
-                            <div class="spinner"></div>
-                            İşlem geçmişi yükleniyor...
+
+                            <button class="quick-action-btn" onclick="showSection('portfolio')">
+                                <div class="quick-action-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="quick-action-text">
+                                    <span>Portföy</span>
+                                    <small>Varlıklarım</small>
+                                </div>
+                            </button>
+
+                            <button class="quick-action-btn" onclick="showSection('deposit')">
+                                <div class="quick-action-icon">
+                                    <i class="fas fa-plus-circle"></i>
+                                </div>
+                                <div class="quick-action-text">
+                                    <span>Para Yatır</span>
+                                    <small>Bakiye ekle</small>
+                                </div>
+                            </button>
+
+                            <button class="quick-action-btn" onclick="showSection('positions')">
+                                <div class="quick-action-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="quick-action-text">
+                                    <span>Pozisyonlar</span>
+                                    <small>Kaldıraçlı işlemler</small>
+                                </div>
+                            </button>
                         </div>
                     </div>
                 </section>
@@ -13881,6 +14584,393 @@
             // Bu fonksiyon portfolio sayfasında hızlı erişim widget'ları oluşturur
             
             // Şimdilik placeholder - gelecekte genişletilebilir
+        }
+
+        // Modern Profile Functions
+        function editProfileAvatar() {
+            showNotification('Avatar düzenleme özelliği yakında gelecek!', 'info');
+        }
+
+        function editProfileInfo() {
+            showNotification('Profil düzenleme özelliği yakında gelecek!', 'info');
+        }
+
+        function showWithdrawalComingSoon() {
+            showNotification('Para çekme özelliği yakında gelecek!', 'info');
+        }
+
+        // Modern Transaction History Loading
+        async function loadTransactionHistory() {
+            const historyContainer = document.getElementById('modernTransactionHistory');
+            
+            if (!historyContainer) {
+                console.warn('Modern transaction history container not found');
+                return;
+            }
+            
+            // Loading state göster
+            historyContainer.innerHTML = `
+                <div class="loading-state">
+                    <div class="modern-spinner"></div>
+                    <p>İşlem geçmişi yükleniyor...</p>
+                </div>
+            `;
+            
+            try {
+                const response = await fetch('backend/user/transaction_history.php?action=list&limit=20', {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+                
+                const result = await response.json();
+                console.log('✅ Modern transaction history loaded:', result);
+                
+                if (result.success && result.data.transactions) {
+                    displayModernTransactionHistory(result.data.transactions);
+                } else {
+                    // Boş durum
+                    historyContainer.innerHTML = `
+                        <div style="text-align: center; padding: 60px 20px; color: #8b8fa3;">
+                            <i class="fas fa-history" style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;"></i>
+                            <h3 style="color: #ffffff; margin-bottom: 12px;">Henüz İşlem Yok</h3>
+                            <p>Henüz hiç işlem yapmamışsınız. İlk işleminizi yapmak için piyasalar sayfasını ziyaret edin.</p>
+                        </div>
+                    `;
+                }
+                
+                // İstatistikleri güncelle
+                if (result.data.stats) {
+                    updateModernProfileStats(result.data.stats);
+                }
+                
+            } catch (error) {
+                console.error('Modern transaction history loading error:', error);
+                historyContainer.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #ef4444;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 24px; margin-bottom: 12px;"></i><br>
+                        İşlem geçmişi yüklenirken hata oluştu.<br>
+                        <button onclick="loadTransactionHistory()" style="background: #4fc3f7; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 12px;">
+                            Tekrar Dene
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        // Modern Transaction History Display
+        function displayModernTransactionHistory(transactions) {
+            const historyContainer = document.getElementById('modernTransactionHistory');
+            
+            if (!transactions || transactions.length === 0) {
+                historyContainer.innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px; color: #8b8fa3;">
+                        <i class="fas fa-history" style="font-size: 48px; margin-bottom: 16px; opacity: 0.5;"></i>
+                        <h3 style="color: #ffffff; margin-bottom: 12px;">İşlem Geçmişi Boş</h3>
+                        <p>Henüz hiç işlem yapmamışsınız.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let historyHTML = '<div style="display: flex; flex-direction: column; gap: 16px;">';
+            
+            transactions.forEach(transaction => {
+                const isPositive = parseFloat(transaction.amount) > 0;
+                const amount = parseFloat(transaction.amount);
+                const formattedAmount = (isPositive ? '+' : '') + '₺' + Math.abs(amount).toLocaleString('tr-TR', { minimumFractionDigits: 2 });
+                
+                // İşlem tipine göre icon belirle
+                let icon = 'fas fa-exchange-alt';
+                let iconColor = '#4fc3f7';
+                
+                if (transaction.type === 'coin_trade') {
+                    icon = transaction.sub_type === 'al' ? 'fas fa-arrow-down' : 'fas fa-arrow-up';
+                    iconColor = transaction.sub_type === 'al' ? '#00d4aa' : '#ef4444';
+                } else if (transaction.type === 'deposit') {
+                    icon = 'fas fa-plus-circle';
+                    iconColor = '#00d4aa';
+                } else if (transaction.type === 'withdrawal') {
+                    icon = 'fas fa-minus-circle';
+                    iconColor = '#ef4444';
+                }
+                
+                // Status badge
+                let statusBadge = '';
+                if (transaction.sub_type === 'beklemede') {
+                    statusBadge = '<span style="background: rgba(251, 191, 36, 0.2); color: #fbbf24; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 600;">Beklemede</span>';
+                } else if (transaction.sub_type === 'onaylandi' || transaction.sub_type === 'al' || transaction.sub_type === 'sat') {
+                    statusBadge = '<span style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 600;">Tamamlandı</span>';
+                } else if (transaction.sub_type === 'reddedildi') {
+                    statusBadge = '<span style="background: rgba(239, 68, 68, 0.2); color: #ef4444; padding: 4px 8px; border-radius: 12px; font-size: 11px; font-weight: 600;">Reddedildi</span>';
+                }
+                
+                historyHTML += `
+                    <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 20px; transition: all 0.3s ease; backdrop-filter: blur(20px);">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                            <div style="display: flex; align-items: center; gap: 16px;">
+                                <div style="width: 48px; height: 48px; background: rgba(${iconColor.substring(1, 3)}, ${iconColor.substring(3, 5)}, ${iconColor.substring(5, 7)}, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <i class="${icon}" style="color: ${iconColor}; font-size: 18px;"></i>
+                                </div>
+                                <div>
+                                    <div style="font-weight: 600; color: #ffffff; margin-bottom: 4px; font-size: 16px;">
+                                        ${transaction.description}
+                                    </div>
+                                    <div style="font-size: 13px; color: #8b8fa3; display: flex; align-items: center; gap: 8px;">
+                                        ${new Date(transaction.date).toLocaleDateString('tr-TR', { 
+                                            year: 'numeric', 
+                                            month: 'short', 
+                                            day: 'numeric', 
+                                            hour: '2-digit', 
+                                            minute: '2-digit' 
+                                        })}
+                                        ${statusBadge}
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <div style="font-weight: 700; font-size: 18px; color: ${isPositive ? '#00d4aa' : '#ef4444'}; margin-bottom: 4px;">
+                                    ${formattedAmount}
+                                </div>
+                                <div style="font-size: 12px; color: #8b8fa3;">
+                                    ${transaction.type === 'coin_trade' ? 'Coin İşlemi' : transaction.type === 'deposit' ? 'Para Yatırma' : 'Para Çekme'}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            historyHTML += '</div>';
+            historyContainer.innerHTML = historyHTML;
+        }
+
+        // Modern Profile Stats Update
+        function updateModernProfileStats(stats) {
+            // Modern stats kartlarını güncelle
+            const modernTotalTrades = document.getElementById('modernTotalTrades');
+            const modernProfitLoss = document.getElementById('modernProfitLoss');
+            const modernPortfolioValue = document.getElementById('modernPortfolioValue');
+            const modernMemberSince = document.getElementById('modernMemberSince');
+
+            if (modernTotalTrades && stats.total_trades) {
+                modernTotalTrades.textContent = stats.total_trades;
+            }
+
+            if (modernProfitLoss) {
+                const profitLoss = (stats.total_sell_amount || 0) - (stats.total_buy_amount || 0);
+                modernProfitLoss.textContent = `₺${profitLoss.toLocaleString('tr-TR')}`;
+                modernProfitLoss.style.color = profitLoss >= 0 ? '#10b981' : '#ef4444';
+            }
+
+            if (modernPortfolioValue) {
+                // Portfolio değeri backend'den gelecek
+                modernPortfolioValue.textContent = '₺0';
+            }
+
+            if (modernMemberSince) {
+                // Üyelik süresi hesapla
+                const memberSince = stats.member_since || new Date();
+                const monthsDiff = Math.floor((new Date() - new Date(memberSince)) / (1000 * 60 * 60 * 24 * 30));
+                modernMemberSince.textContent = monthsDiff || 1;
+            }
+        }
+
+        // Modern User Info Display
+        function displayModernUserInfo(userInfo) {
+            const container = document.getElementById('modernUserInfo');
+            
+            if (!container) return;
+            
+            container.innerHTML = `
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 0;">
+                    <div style="background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                        <h4 style="color: #ffffff; margin-bottom: 16px; font-size: 16px; font-weight: 600;">
+                            <i class="fas fa-user" style="color: #3b82f6; margin-right: 8px;"></i>
+                            Kişisel Bilgiler
+                        </h4>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="color: #8b8fa3; font-size: 14px;">Kullanıcı Adı:</span>
+                                <span style="color: #ffffff; font-weight: 600;">${userInfo.username || 'N/A'}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="color: #8b8fa3; font-size: 14px;">Email:</span>
+                                <span style="color: #ffffff; font-weight: 600;">${userInfo.email || 'N/A'}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="color: #8b8fa3; font-size: 14px;">Ad Soyad:</span>
+                                <span style="color: #ffffff; font-weight: 600;">${userInfo.ad_soyad || 'Belirtilmemiş'}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1);">
+                        <h4 style="color: #ffffff; margin-bottom: 16px; font-size: 16px; font-weight: 600;">
+                            <i class="fas fa-calendar" style="color: #10b981; margin-right: 8px;"></i>
+                            Hesap Durumu
+                        </h4>
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="color: #8b8fa3; font-size: 14px;">Kayıt Tarihi:</span>
+                                <span style="color: #ffffff; font-weight: 600;">${userInfo.created_at ? new Date(userInfo.created_at).toLocaleDateString('tr-TR') : 'N/A'}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="color: #8b8fa3; font-size: 14px;">Son Giriş:</span>
+                                <span style="color: #ffffff; font-weight: 600;">${userInfo.son_giris ? new Date(userInfo.son_giris).toLocaleDateString('tr-TR') : 'İlk giriş'}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span style="color: #8b8fa3; font-size: 14px;">Hesap Tipi:</span>
+                                <span style="color: #10b981; font-weight: 600;">${userInfo.role === 'admin' ? 'Yönetici' : 'Premium Üye'}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Enhanced loadUserInfo for modern profile
+        function loadUserInfo() {
+            fetch('backend/public/profile.php', {
+                method: 'GET',
+                credentials: 'include'
+            })
+            .then(r => r.json())
+            .then(data => {
+                if(data.success) {
+                    console.log('✅ Kullanıcı bilgileri yüklendi:', data.user);
+                    
+                    // Bakiye göster
+                    const balance = parseFloat(data.user.balance) || 0;
+                    const balanceFormatted = balance.toLocaleString('tr-TR', {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2
+                    });
+                    
+                    document.getElementById('userBalance').innerHTML = 
+                        `<i class="fas fa-wallet"></i> ₺${balanceFormatted}`;
+                    
+                    document.getElementById('totalBalance').innerHTML = 
+                        `<h1 style="font-size: 2rem; color: #00d4aa;">₺${balanceFormatted}</h1>`;
+                    
+                    // Modern Profile Updates
+                    const profileUsername = document.getElementById('profileUsername');
+                    const profileBalanceAmount = document.getElementById('profileBalanceAmount');
+                    const profileBalanceChange = document.getElementById('profileBalanceChange');
+                    const profileJoinDate = document.getElementById('profileJoinDate');
+                    
+                    if (profileUsername) {
+                        profileUsername.textContent = data.user.username || 'Kullanıcı';
+                    }
+                    
+                    if (profileBalanceAmount) {
+                        profileBalanceAmount.textContent = `₺${balanceFormatted}`;
+                    }
+                    
+                    if (profileBalanceChange) {
+                        // Günlük değişim hesapla (şimdilik sabit)
+                        const dailyChange = balance * 0.02; // %2 örnek artış
+                        profileBalanceChange.textContent = `+₺${dailyChange.toLocaleString('tr-TR', {minimumFractionDigits: 2})} (+2.0%)`;
+                    }
+                    
+                    if (profileJoinDate) {
+                        const joinDate = data.user.created_at ? new Date(data.user.created_at).toLocaleDateString('tr-TR', {
+                            year: 'numeric',
+                            month: 'long'
+                        }) : 'Ocak 2024';
+                        profileJoinDate.innerHTML = `
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Üye olma: ${joinDate}</span>
+                        `;
+                    }
+                    
+                    // Profile avatar güncelle
+                    const profileAvatar = document.getElementById('profileAvatar');
+                    if (profileAvatar) {
+                        const firstLetter = (data.user.username || 'U').charAt(0).toUpperCase();
+                        profileAvatar.innerHTML = `<i class="fas fa-user"></i>`;
+                    }
+                    
+                    // Modern user info display
+                    displayModernUserInfo(data.user);
+                    
+                    // Legacy updates
+                    document.getElementById('userInfo').innerHTML = `
+                        <div style="line-height: 1.8;">
+                            <p><strong>Kullanıcı Adı:</strong> ${data.user.username || 'N/A'}</p>
+                            <p><strong>Email:</strong> ${data.user.email || 'N/A'}</p>
+                            <p><strong>Ad Soyad:</strong> ${data.user.ad_soyad || 'Belirtilmemiş'}</p>
+                            <p><strong>Kayıt Tarihi:</strong> ${data.user.created_at ? new Date(data.user.created_at).toLocaleDateString('tr-TR') : 'N/A'}</p>
+                            <p><strong>Son Giriş:</strong> ${data.user.son_giris ? new Date(data.user.son_giris).toLocaleDateString('tr-TR') : 'İlk giriş'}</p>
+                            <p><strong>Hesap Tipi:</strong> ${data.user.role === 'admin' ? 'Yönetici' : 'Standart Kullanıcı'}</p>
+                            <p><strong>Toplam Bakiye:</strong> <span style="color: #00d4aa; font-weight: 600;">₺${balanceFormatted}</span></p>
+                        </div>
+                    `;
+                    
+                    // Bakiye kartı
+                    document.getElementById('balanceInfo').innerHTML = `
+                        <div style="text-align: center;">
+                            <h1 style="font-size: 2.5rem; color: #00d4aa; margin-bottom: 10px;">₺${balanceFormatted}</h1>
+                            <p style="color: #8b8fa3; margin-bottom: 15px;">Mevcut Bakiye</p>
+                            <div style="display: flex; gap: 10px; justify-content: center;">
+                                <button onclick="showSection('deposit')" style="background: #00d4aa; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px;">
+                                    <i class="fas fa-plus"></i> Para Yatır
+                                </button>
+                                <button onclick="showWithdrawalComingSoon()" style="background: #2d3748; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px;">
+                                    <i class="fas fa-minus"></i> Para Çek
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // İstatistikler
+                    document.getElementById('totalTrades').textContent = '12';
+                    document.getElementById('profitLoss').textContent = '₺2,450';
+                    document.getElementById('memberSince').textContent = '3 ay';
+                    
+                    // İşlem geçmişi ve mevduatları yükle
+                    loadTransactionHistory();
+                    if (typeof loadRecentDeposits === 'function') {
+                        loadRecentDeposits();
+                    }
+                    
+                    // Diğer dashboard verilerini simüle et
+                    setTimeout(() => {
+                        document.getElementById('dailyPnl').innerHTML = 
+                            `<h2 style="color: #00d4aa;">+₺156.24</h2><small style="color: #8b8fa3;">+2.34%</small>`;
+                        
+                        document.getElementById('openPositions').innerHTML = 
+                            `<h2 style="color: #ffffff;">3</h2><small style="color: #8b8fa3;">Aktif pozisyon</small>`;
+                        
+                        document.getElementById('recentTrades').innerHTML = 
+                            `<p style="color: #8b8fa3;">Henüz işlem yapılmamış</p>`;
+                        
+                        document.getElementById('marketSummary').innerHTML = 
+                            `<p style="color: #8b8fa3;">Piyasa verileri yükleniyor...</p>`;
+                    }, 1000);
+                    
+                } else {
+                    console.error('❌ Kullanıcı girişi gerekli:', data.message);
+                    showNotification('Oturum süreniz dolmuş. Lütfen tekrar giriş yapın.', 'error');
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 2000);
+                }
+            })
+            .catch(err => {
+                console.error('❌ API Hatası:', err);
+                document.getElementById('totalBalance').innerHTML = '<span style="color: #ef4444;">Bağlantı Hatası</span>';
+                document.getElementById('userBalance').innerHTML = '<i class="fas fa-exclamation-triangle"></i> Hata';
+                showNotification('Bağlantı hatası. Lütfen sayfayı yenileyin.', 'error');
+            });
+        }
+
+        // Show section helper function
+        function showSection(sectionName) {
+            // Nav link'i bul ve tıkla
+            const navLink = document.querySelector(`[data-section="${sectionName}"]`);
+            if (navLink) {
+                navLink.click();
+            }
         }
     </script>
 </body>
